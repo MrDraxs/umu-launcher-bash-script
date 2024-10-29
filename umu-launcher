@@ -27,7 +27,7 @@ gi=0
 fi
 printf "$gi" > "$PWD"/UMU-GAME-ID.txt
 fi
-export WINEPREFIX=""$PWD"/.wp"
+export WINEPREFIX="$PWD"/.wp
 export GAMEID=$(cat "$PWD"/UMU-GAME-ID.txt)
 export PROTONPATH=GE-Proton
 printf "
