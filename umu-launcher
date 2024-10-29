@@ -1,14 +1,9 @@
 #!/bin/bash
 
-if [[ "$(echo $PWD | grep -o '[^/]*$')" =~ \ |\' ]]
-then
-rename "$PWD" "$(echo $PWD | sed 's![^/]*$!!')$(echo $PWD | grep -o '[^/]*$' | sed 's/ /-/g')"
-fi
-
 gn=$( echo $1 | cut -d'.' -f1 )
 if [ -n "$1" ]
 then
-if [ ! -f $PWD/UMU-GAME-ID.txt ]
+if [ ! -f "$PWD"/UMU-GAME-ID.txt ]
 then
 for l in $(wget -q -O - "https://github.com/Open-Wine-Components/umu-database/raw/refs/heads/main/umu-database.csv" | sed 's/ //g' | sed 's/:/,/g')
 do
@@ -30,18 +25,18 @@ if [ -z "$gi" ]
 then
 gi=0
 fi
-printf "$gi" > $PWD/UMU-GAME-ID.txt
+printf "$gi" > "$PWD"/UMU-GAME-ID.txt
 fi
-export WINEPREFIX="$PWD/.wp"
-export GAMEID=$(cat $PWD/UMU-GAME-ID.txt)
+export WINEPREFIX=""$PWD"/.wp"
+export GAMEID=$(cat "$PWD"/UMU-GAME-ID.txt)
 export PROTONPATH=GE-Proton
 printf "
 WINEPREFIX=$WINEPREFIX
-GAMEID=$GAMEID 
+GAMEID=$GAMEID
 PROTONPATH=$PROTONPATH
 
 "
-umu-run "$PWD/$1"
+umu-run "$PWD"/"$1"
 else
 printf ' ------------------------
  |give a game executable|
