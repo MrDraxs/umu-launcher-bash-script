@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ "$(echo $PWD | grep -o '[^/]*$')" =~ \ |\' ]]
+then
+mv "$PWD" $(echo $PWD | sed 's![^/]*$!!')$(echo $PWD | grep -o '[^/]*$' | sed 's/ /-/g')
+fi
+
 gn=$( echo $1 | cut -d'.' -f1 )
 if [ -n "$1" ]
 then
