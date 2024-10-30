@@ -10,7 +10,6 @@ wget cut sed grep bash
 ## or
     bash ./install
 ## usage:
-put the script into a $PATH directory and chmod(make executable)
 
 enter the game folden and launch the game using the script EX:( umu-launcher game-executable.exe )
 
