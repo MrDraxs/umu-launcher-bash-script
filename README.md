@@ -6,7 +6,7 @@ https://github.com/Open-Wine-Components/umu-launcher
 ## requirements
 git wget cut sed grep bash bash(csv module)
 ## automatic installation
-    git install https://github.com/MrDraxs/umu-launcher-bash-script.git && cd umu-launcher-bash-script && chmod +x ./install && ./install
+    git clone https://github.com/MrDraxs/umu-launcher-bash-script.git && cd umu-launcher-bash-script && chmod +x ./install && ./install
 ## usage:
 
 enter the game folden and launch the game using the script EX:( umu-launcher game-executable.exe )
