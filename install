@@ -6,7 +6,7 @@ fi
 
 for sc in $(ls "$PWD"/scripts/*.sh); do
   b=${sc##*/}
-  printf "\n[moving $sc into $HOME/.local/bin as ${b%.*}]\n"
+  printf "\n[moving $sc into $HOME/.local/bin as ${b%.*}]\n\n"
   cp -r $sc $HOME/.local/bin/${b%.*}
   chmod +x $HOME/.local/bin/${b%.*}
 done
