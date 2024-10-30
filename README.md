@@ -4,7 +4,7 @@ umu-launcher is a bash script that automatic configure umu to launch games
 ## bedore using it you must install umu
 https://github.com/Open-Wine-Components/umu-launcher
 ## requirements
-wget cut sed grep bash
+wget cut sed grep bash bash(csv module)
 ## automatic installation
     chmod +x ./install && ./install
 ## or
