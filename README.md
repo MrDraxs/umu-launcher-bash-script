@@ -6,6 +6,8 @@ https://github.com/Open-Wine-Components/umu-launcher
 ## requirements
 git wget cut sed grep bash bash(csv module)
 ## automatic installation
+    git https://github.com/MrDraxs/umu-launcher-bash-script.git && cd umu-launcher-bash-script
+## then
     chmod +x ./install && ./install
 ## or
     bash ./install
