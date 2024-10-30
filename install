@@ -4,6 +4,13 @@ if [ ! -d "$HOME/.local/bin" ]; then
 	mkdir -p "$HOME/.local/bin"
 fi
 
+for sc in $(ls "$PWD"/scripts/*.sh); do
+  b=${sc##*/}
+  echo "[moving $sc into $HOME/.local/bin as ${b%.*}]"
+  cp -r $sc $HOME/.local/bin/${b%.*}
+  chmod +x $HOME/.local/bin/${b%.*}
+done
+
 for d in $(echo $PATH | tr ":" "\n")
 do
 	if [ $d == $HOME/.local/bin ]
@@ -13,10 +20,3 @@ do
 done
 printf 'if [ -d "$HOME/.local/bin" ]; then\nexport PATH="$HOME/.local/bin:$PATH"\nfi' > $HOME/.profile
 source $HOME/.profile
-
-for sc in $(ls "$PWD"/scripts/*.sh); do
-  b=${sc##*/}
-  echo "[moving $sc into $HOME/.local/bin as ${b%.*}]"
-  cp -r $sc $HOME/.local/bin/${b%.*}
-  chmod +x $HOME/.local/bin/${b%.*}
-done
