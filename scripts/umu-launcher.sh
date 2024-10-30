@@ -2,9 +2,9 @@
 
 enable -f /usr/lib/bash/csv csv
 
-if [[ "$(echo $PWD | grep -o '[^/]*$')" =~ \ |\' ]]
+if [[ $(echo "$PWD" | grep -o '[^/]*$') =~ \ |\' ]]
 then
-mv "$PWD" $(echo $PWD | sed 's![^/]*$!!')$(echo $PWD | grep -o '[^/]*$' | sed 's/ /-/g')
+mv "$PWD" $(echo "$PWD" | sed 's![^/]*$!!')$(echo "$PWD" | grep -o '[^/]*$' | sed 's/ /-/g')
 fi
 
 gn=${1%%.*}
