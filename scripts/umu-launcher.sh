@@ -2,11 +2,6 @@
 
 enable -f /usr/lib/bash/csv csv
 
-if [[ $(echo "$PWD" | grep -o '[^/]*$') =~ \ |\' ]]
-then
-mv "$PWD" $(echo "$PWD" | sed 's![^/]*$!!')$(echo "$PWD" | grep -o '[^/]*$' | sed 's/ /-/g')
-fi
-
 gn=${1%%.*}
 gi=0
 
@@ -36,6 +31,12 @@ PROTONPATH=$PROTONPATH
 
 "
 umu-run "$PWD"/"$1"
+
+if [[ $(echo "$PWD" | grep -o '[^/]*$') =~ \ |\' ]]
+then
+mv "$PWD" $(echo "$PWD" | sed 's![^/]*$!!')$(echo "$PWD" | grep -o '[^/]*$' | sed 's/ /-/g')
+fi
+
 else
 printf ' ------------------------
  |give a game executable|
