@@ -9,7 +9,7 @@ git wget cut sed grep bash bash(csv module)
     git clone https://github.com/MrDraxs/umu-launcher-bash-script.git && cd umu-launcher-bash-script && chmod +x ./install && ./install
 ## usage:
 
-enter the game folden and launch the game using the script EX:( umu-launcher game-executable.exe )
+enter the game folden and launch the game using the script EX:( umu-launcher game-executable.exe ) or with proton ge ( umu-launcher -ge game-executable.exe )
 
 the game will take a while to launch the first time, the reason is that the script is checking if theres proton fixes for the game that you are launching.
 
