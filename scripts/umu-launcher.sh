@@ -2,11 +2,21 @@
 
 enable -f /usr/lib/bash/csv csv
 
-gn=${1%%.*}
+[[ ! -d "${PWD}/.wp" ]] && mkdir "${PWD}/.wp"
+
 gi=0
 
-if [ -n "$1" ]
+if [ -n "${1}" ]
 then
+if [ "${1}" = "-ge" ]
+then
+gn=${2%%.*}
+export PROTONPATH=GE-Proton
+gex=$2
+else
+gn=${1%%.*}
+gex=$1
+fi
 if [ ! -f "$PWD"/UMU-GAME-ID.txt ]
 then
 while read -r line; do
@@ -20,17 +30,16 @@ cat > "UMU-GAME-ID.txt" << EOF
 $gi
 EOF
 fi
-export WINEPREFIX="$PWD"/.wp
+export WINEPREFIX="${PWD}"/.wp
 export GAMEID=$(cat "$PWD"/UMU-GAME-ID.txt)
-export PROTONPATH=GE-Proton
 
 printf "\n
 WINEPREFIX=$WINEPREFIX
 GAMEID=$GAMEID
-PROTONPATH=$PROTONPATH
-
 "
-umu-run "$PWD"/"$1"
+[[ "${1}" == "-ge" ]] && printf 'PROTONPATH=GE-PROTON\n\n'
+
+umu-run "$PWD"/"$gex"
 
 if [[ $(echo "$PWD" | grep -o '[^/]*$') =~ \ |\' ]]
 then
